@@ -1,6 +1,10 @@
 package org.vinhhh.CiCdTest;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class DayTimeChecker {
+
     public boolean isValidDate(int day, int month, int year) {
         if (year <= 0) return false;
         if (month < 1 || month > 12) return false;

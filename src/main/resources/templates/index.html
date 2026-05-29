@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DayTimeChecker Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            width: 420px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 18px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .valid {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .invalid {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>DayTimeChecker</h1>
+
+    <form action="/check" method="post">
+        <label>Day:</label>
+        <input type="number" name="day" required>
+
+        <label>Month:</label>
+        <input type="number" name="month" required>
+
+        <label>Year:</label>
+        <input type="number" name="year" required>
+
+        <button type="submit">Check Date</button>
+    </form>
+
+    <div th:if="${message != null}"
+         th:class="'result ' + (${valid} ? 'valid' : 'invalid')">
+        <p th:text="${day + '/' + month + '/' + year}"></p>
+        <p th:text="${message}"></p>
+    </div>
+</div>
+
+</body>
+</html>
