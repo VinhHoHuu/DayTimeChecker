@@ -10,7 +10,7 @@ public class DayTimeCheckerTest {
 
     @Test
     void validNormalDateShouldReturnTrue() {
-        assertTrue(checker.isValidDate(25, 5, 2026));
+        assertTrue(checker.isValidDate(35, 5, 2026));
     }
 
     @Test
