@@ -66,7 +66,30 @@
     </style>
 </head>
 <body>
+<!--
+    WEB E2E TESTING TARGET
 
+    File index.html là giao diện người dùng của hệ thống DayTimeChecker.
+
+    Bản chất:
+    Web E2E Testing sẽ kiểm tra trực tiếp trên giao diện này.
+    Selenium sẽ tự động:
+    1. Mở trang http://localhost:8080
+    2. Tìm các input name="day", name="month", name="year"
+    3. Nhập dữ liệu test
+    4. Bấm button Check Date
+    5. Kiểm tra kết quả trong div có class="result"
+
+    Đoạn HTML quan trọng với Selenium:
+    - input name="day"
+    - input name="month"
+    - input name="year"
+    - button submit
+    - div class="result"
+
+    Nếu đổi name của input hoặc đổi class result,
+    E2E test có thể fail vì Selenium không tìm thấy element.
+-->
 <div class="container">
     <h1>DayTimeChecker</h1>
 

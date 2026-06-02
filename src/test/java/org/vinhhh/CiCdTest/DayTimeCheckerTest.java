@@ -1,9 +1,35 @@
+package org.vinhhh.CiCdTest;
+
 import org.junit.jupiter.api.Test;
-import org.vinhhh.CiCdTest.DayTimeChecker;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DayTimeCheckerTest {
+    /*
+     * UNIT TESTING
+     *
+     * Bản chất:
+     * Unit Testing dùng để kiểm thử từng hàm hoặc từng class nhỏ một cách độc lập.
+     * Ở đây, test trực tiếp class DayTimeChecker mà không cần chạy web, không cần API,
+     * không cần browser và không cần database.
+     *
+     * Đoạn code được test:
+     * - DayTimeChecker.isValidDate()
+     * - DayTimeChecker.isLeapYear()
+     *
+     * Mục tiêu:
+     * Kiểm tra logic xử lý ngày hợp lệ, ngày không hợp lệ và năm nhuận.
+     *
+     * Kết quả nhận được:
+     * - Nếu logic đúng: test pass, Maven hiện BUILD SUCCESS.
+     * - Nếu logic sai: test fail, Maven báo lỗi ở test case bị sai.
+     *
+     * Cách chạy:
+     * mvn test
+     *
+     * Dependency cần có:
+     * spring-boot-starter-test
+     */
 
     private final DayTimeChecker dayTimeChecker = new DayTimeChecker();
 

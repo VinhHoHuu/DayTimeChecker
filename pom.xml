@@ -21,26 +21,78 @@
     </properties>
 
     <dependencies>
-        <!-- Web MVC -->
+
+        <!--
+            WEB DEPENDENCY
+
+            spring-boot-starter-web dùng để xây dựng web application.
+            Nó hỗ trợ Controller, REST API, HTTP request/response và embedded Tomcat.
+
+            Dùng cho:
+            - API Testing với DateRestController
+            - Web E2E Testing với DateController
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- HTML Template -->
+        <!--
+            THYMELEAF DEPENDENCY
+
+            spring-boot-starter-thymeleaf dùng để render giao diện HTML.
+            Trong project này nó dùng file index.html trong templates.
+
+            Dùng cho:
+            - Web UI
+            - Web E2E Testing
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
-        <!-- Test -->
+        <!--
+            UNIT TESTING DEPENDENCY
+
+            spring-boot-starter-test chứa các thư viện test chính như:
+            - JUnit 5
+            - AssertJ
+            - Mockito
+            - Spring Test
+
+            Dùng cho:
+            - Unit Testing: DayTimeCheckerTest
+            - Có thể dùng cho Controller test nếu cần
+
+            Scope test nghĩa là dependency này chỉ dùng trong src/test/java.
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
 
+        <!--
+            WEB E2E TESTING DEPENDENCY
+
+            selenium-java dùng để tự động điều khiển trình duyệt.
+            Trong project này Selenium mở Chrome, nhập form và kiểm tra kết quả UI.
+
+            Dùng cho:
+            - DateWebE2ETest
+
+            Scope test nghĩa là Selenium chỉ dùng trong src/test/java,
+            không dùng trong code chính của ứng dụng.
+        -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.25.0</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
     <build>
         <plugins>
             <!-- Build runnable Spring Boot JAR -->
