@@ -1,65 +1,79 @@
 import org.junit.jupiter.api.Test;
 import org.vinhhh.CiCdTest.DayTimeChecker;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
+class DayTimeCheckerTest {
 
-public class DayTimeCheckerTest {
-    private final DayTimeChecker checker = new DayTimeChecker();
+    private final DayTimeChecker dayTimeChecker = new DayTimeChecker();
 
     @Test
-    void validNormalDateShouldReturnTrue() {
-        assertTrue(checker.isValidDate(25, 5, 2026));
+    void isValidDate_ShouldReturnTrue_WhenDateIsValid() {
+        boolean result = dayTimeChecker.isValidDate(15, 6, 2025);
+
+        assertTrue(result);
     }
 
     @Test
-    void dayGreaterThanMaxDayShouldReturnFalse() {
-        assertFalse(checker.isValidDate(32, 1, 2026));
+    void isValidDate_ShouldReturnFalse_WhenDayIsGreaterThan31() {
+        boolean result = dayTimeChecker.isValidDate(32, 1, 2025);
+
+        assertFalse(result);
     }
 
     @Test
-    void invalidMonthShouldReturnFalse() {
-        assertFalse(checker.isValidDate(10, 13, 2026));
+    void isValidDate_ShouldReturnFalse_WhenMonthIsInvalid() {
+        boolean result = dayTimeChecker.isValidDate(10, 13, 2025);
+
+        assertFalse(result);
     }
 
     @Test
-    void invalidYearShouldReturnFalse() {
-        assertFalse(checker.isValidDate(10, 10, 0));
+    void isValidDate_ShouldReturnFalse_WhenYearIsInvalid() {
+        boolean result = dayTimeChecker.isValidDate(10, 5, 0);
+
+        assertFalse(result);
     }
 
     @Test
-    void february29InLeapYearShouldReturnTrue() {
-        assertTrue(checker.isValidDate(29, 2, 2024));
+    void isValidDate_ShouldReturnTrue_WhenFebruary29InLeapYear() {
+        boolean result = dayTimeChecker.isValidDate(29, 2, 2024);
+
+        assertTrue(result);
     }
 
     @Test
-    void february29InNonLeapYearShouldReturnFalse() {
-        assertFalse(checker.isValidDate(29, 2, 2025));
+    void isValidDate_ShouldReturnFalse_WhenFebruary29InNonLeapYear() {
+        boolean result = dayTimeChecker.isValidDate(29, 2, 2023);
+
+        assertFalse(result);
     }
 
     @Test
-    void april31ShouldReturnFalse() {
-        assertFalse(checker.isValidDate(31, 4, 2026));
+    void isValidDate_ShouldReturnFalse_WhenAprilHas31Days() {
+        boolean result = dayTimeChecker.isValidDate(31, 4, 2025);
+
+        assertFalse(result);
     }
 
     @Test
-    void december31ShouldReturnTrue() {
-        assertTrue(checker.isValidDate(31, 12, 2026));
+    void isLeapYear_ShouldReturnTrue_WhenYearDivisibleBy400() {
+        boolean result = dayTimeChecker.isLeapYear(2000);
+
+        assertTrue(result);
     }
 
     @Test
-    void dayZeroShouldReturnFalse() {
-        assertFalse(checker.isValidDate(0, 5, 2026));
+    void isLeapYear_ShouldReturnFalse_WhenYearDivisibleBy100ButNot400() {
+        boolean result = dayTimeChecker.isLeapYear(1900);
+
+        assertFalse(result);
     }
 
     @Test
-    void centuryYear1900ShouldNotBeLeapYear() {
-        assertFalse(checker.isLeapYear(1900));
-    }
+    void isLeapYear_ShouldReturnTrue_WhenYearDivisibleBy4ButNot100() {
+        boolean result = dayTimeChecker.isLeapYear(2024);
 
-    @Test
-    void year2000ShouldBeLeapYear() {
-        assertTrue(checker.isLeapYear(2000));
+        assertTrue(result);
     }
 }
