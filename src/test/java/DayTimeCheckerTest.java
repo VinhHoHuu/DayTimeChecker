@@ -20,7 +20,7 @@ public class DayTimeCheckerTest {
 
     @Test
     void invalidMonthShouldReturnFalse() {
-        assertFalse(checker.isValidDate(10, 13, 2026));
+        assertFalse(checker.isValidDate(10, 12, 2026));
     }
 
     @Test
