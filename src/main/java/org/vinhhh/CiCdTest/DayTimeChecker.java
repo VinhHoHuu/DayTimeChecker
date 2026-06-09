@@ -21,31 +21,31 @@ public class DayTimeChecker {
      * src/test/java/org/vinhhh/CiCdTest/DayTimeCheckerTest.java
      */
 
-    public boolean isValidDate(int day, int month, int year) {
-        if (year <= 0) return false;
-        if (month < 1 || month > 12) return false;
+        public int dayInMonth(int month, int year) {
+            if (year <= 0) return -1;
+            if (month < 1 || month > 12) return -1;
 
-        int maxDay;
-
-        switch (month) {
-            case 1, 3, 5, 7, 8, 10, 12 -> maxDay = 31;
-            case 4, 6, 9, 11 -> maxDay = 30;
-            case 2 -> {
-                if (isLeapYear(year)) {
-                    maxDay = 29;
-                } else {
-                    maxDay = 28;
-                }
-            }
-            default -> {
-                return false;
-            }
+            return switch (month) {
+                case 1, 3, 5, 7, 8, 10, 12 -> 31;
+                case 4, 6, 9, 11 -> 30;
+                case 2 -> isLeapYear(year) ? 29 : 28;
+                default -> -1;
+            };
         }
 
-        return day >= 1 && day <= maxDay;
-    }
+        public boolean checkDate(int day, int month, int year) {
+            int maxDay = dayInMonth(month, year);
 
-    public boolean isLeapYear(int year) {
-        return year % 400 == 0 || year % 4 == 0 && year % 100 != 0;
+            if (maxDay == -1) return false;
+
+            return day >= 1 && day <= maxDay;
+        }
+
+        public boolean isValidDate(int day, int month, int year) {
+            return checkDate(day, month, year);
+        }
+
+        public boolean isLeapYear(int year) {
+            return year % 400 == 0 || year % 4 == 0 && year % 100 != 0;
+        }
     }
-}
