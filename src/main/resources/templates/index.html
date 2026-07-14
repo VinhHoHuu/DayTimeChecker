@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>DayTimeChecker Demo</title>
@@ -65,8 +66,9 @@
         }
     </style>
 </head>
+
 <body>
-<!--
+    <!--
     WEB E2E TESTING TARGET
 
     File index.html là giao diện người dùng của hệ thống DayTimeChecker.
@@ -90,27 +92,27 @@
     Nếu đổi name của input hoặc đổi class result,
     E2E test có thể fail vì Selenium không tìm thấy element.
 -->
-<div class="container">
-    <h1>DayTimeChecker</h1>
-    <form action="/check" method="post">
-        <label>Day:</label>
-        <input type="number" name="day" required>
+    <div class="container">
+        <h1>DayTimeChecker</h1>
+        <form action="/check" method="post">
+            <label>Day:</label>
+            <input type="number" name="day" required>
 
-        <label>Month:</label>
-        <input type="number" name="month" required>
+            <label>Month:</label>
+            <input type="number" name="month" required>
 
-        <label>Year:</label>
-        <input type="number" name="year" required>
+            <label>Year:</label>
+            <input type="number" name="year" required>
 
-        <button type="submit">Check Date</button>
-    </form>
+            <button type="submit">Check Date</button>
+        </form>
 
-    <div th:if="${message != null}"
-         th:class="'result ' + (${valid} ? 'valid' : 'invalid')">
-        <p th:text="${day + '/' + month + '/' + year}"></p>
-        <p th:text="${message}"></p>
+        <div th:if="${message != null}" th:class="'result ' + (${valid} ? 'valid' : 'invalid')">
+            <p th:text="${day + '/' + month + '/' + year}"></p>
+            <p th:text="${message}"></p>
+        </div>
     </div>
-</div>
 
 </body>
+
 </html>

@@ -25,6 +25,14 @@ const { test, expect } = require('@playwright/test');
  * npx playwright test visual-tests/date-ui-visual.spec.js --headed --debug
     --headed  = mở Chrome lên cho mày thấy
     --debug   = dừng từng bước, mở Playwright Inspector
+
+
+    1/Tạo ảnh chuẩn đầu tiên để đối chiếu
+    npx playwright test visual-tests/date-ui-visual.spec.js --update-snapshots
+
+    2/Chạy test để kiểm tra
+    npx playwright test visual-tests/date-ui-visual.spec.js
+
  */
 
 test('homepage should match visual snapshot', async ({ page }) => {

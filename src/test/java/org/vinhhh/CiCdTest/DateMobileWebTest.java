@@ -141,7 +141,7 @@ class DateMobileWebTest {
      * - UI hiển thị Valid date
      */
     @Test
-    void mobile_ShouldShowValidDate_WhenInputIsLeapYearDate() {
+    void mobile_ShouldShowValidDate_WhenInputIsLeapYearDate() throws InterruptedException {
         driver = createMobileDriver();
 
         driver.get(getBaseUrl());
@@ -159,6 +159,9 @@ class DateMobileWebTest {
 
         assertTrue(result.getText().contains("29/2/2024"));
         assertTrue(result.getText().contains("Valid date"));
+
+        // Delay 2 giây để dễ theo dõi kết quả khi demo
+        Thread.sleep(2000);
     }
 
     /*
@@ -175,7 +178,7 @@ class DateMobileWebTest {
      * - UI hiển thị Invalid date
      */
     @Test
-    void mobile_ShouldShowInvalidDate_WhenInputIsApril31() {
+    void mobile_ShouldShowInvalidDate_WhenInputIsApril31() throws InterruptedException {
         driver = createMobileDriver();
 
         driver.get(getBaseUrl());
@@ -193,5 +196,8 @@ class DateMobileWebTest {
 
         assertTrue(result.getText().contains("31/4/2025"));
         assertTrue(result.getText().contains("Invalid date"));
+
+        // Delay 2 giây để dễ theo dõi kết quả khi demo
+        Thread.sleep(2000);
     }
 }

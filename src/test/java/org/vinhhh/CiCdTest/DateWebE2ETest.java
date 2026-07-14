@@ -61,6 +61,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * Nếu không có annotation này, khi chạy E2E test trên GitHub Actions,
  * app có thể chưa chạy nên Selenium không truy cập được trang web.
+ * mvn -Dtest=DateWebE2ETest test
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class DateWebE2ETest {
@@ -158,7 +159,7 @@ class DateWebE2ETest {
      * - Giao diện hiển thị: Valid date
      */
     @Test
-    void shouldShowValidDate_WhenInputIsLeapYearDate() {
+    void shouldShowValidDate_WhenInputIsLeapYearDate() throws InterruptedException {
         driver = createDriver();
 
         /*
@@ -197,6 +198,9 @@ class DateWebE2ETest {
          */
         assertTrue(result.getText().contains("29/2/2024"));
         assertTrue(result.getText().contains("Valid date"));
+
+        // Delay 2 giây để dễ theo dõi kết quả khi demo
+        Thread.sleep(2000);
     }
 
     /*
@@ -211,7 +215,7 @@ class DateWebE2ETest {
      * - Giao diện hiển thị: Invalid date
      */
     @Test
-    void shouldShowInvalidDate_WhenInputIsApril31() {
+    void shouldShowInvalidDate_WhenInputIsApril31() throws InterruptedException {
         driver = createDriver();
 
         /*
@@ -247,5 +251,8 @@ class DateWebE2ETest {
          */
         assertTrue(result.getText().contains("31/4/2025"));
         assertTrue(result.getText().contains("Invalid date"));
+
+        // Delay 2 giây để dễ theo dõi kết quả khi demo
+        Thread.sleep(2000);
     }
 }

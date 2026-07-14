@@ -6,6 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/*
+ * AI-ASSISTED TESTING (GitHub Copilot)
+ *
+ * Lệnh chạy:
+ * mvn -Dtest=GitHubCopilotTesting test
+ */
 public class GitHubCopilotTesting {
     private final DayTimeChecker checker = new DayTimeChecker();
 
