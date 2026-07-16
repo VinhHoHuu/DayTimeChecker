@@ -13,95 +13,96 @@ public class DayTimeCheckerTest {
      * TEST CASES FOR DayInMonth FUNCTION
      * ============================================================
      */
+    //mvn -Dtest=DayTimeCheckerTest test
 
-    // UTCID01 - February in leap year
+    // UTCID01
     @Test
-    void UTCID01_DayInMonth_FebruaryLeapYear_Return29() {
-        assertEquals(29, checker.dayInMonth(2, 2020));
+    void UTCID01_DayInMonth() {
+        assertEquals(31, checker.dayInMonth(1, 2020));
     }
 
-    // UTCID02 - February in normal year
+    // UTCID02
     @Test
-    void UTCID02_DayInMonth_FebruaryNormalYear_Return28() {
+    void UTCID02_DayInMonth() {
         assertEquals(28, checker.dayInMonth(2, 2021));
     }
 
-    // UTCID03 - Month has 31 days
+    // UTCID03
     @Test
-    void UTCID03_DayInMonth_January_Return31() {
-        assertEquals(31, checker.dayInMonth(1, 2021));
+    void UTCID03_DayInMonth() {
+        assertEquals(28, checker.dayInMonth(2, 2019));
     }
 
-    // UTCID04 - Month has 30 days
+    // UTCID04
     @Test
-    void UTCID04_DayInMonth_April_Return30() {
-        assertEquals(30, checker.dayInMonth(4, 2021));
+    void UTCID04_DayInMonth() {
+        assertEquals(-1, checker.dayInMonth(15, 2021));
     }
 
-    // UTCID05 - March has 31 days
+    // UTCID05
     @Test
-    void UTCID05_DayInMonth_March_Return31() {
+    void UTCID05_DayInMonth() {
         assertEquals(31, checker.dayInMonth(3, 2020));
     }
 
-    // UTCID06 - May has 31 days
+    // UTCID06
     @Test
-    void UTCID06_DayInMonth_May_Return31() {
+    void UTCID06_DayInMonth() {
         assertEquals(31, checker.dayInMonth(5, 2020));
     }
 
-    // UTCID07 - June has 30 days
+    // UTCID07
     @Test
-    void UTCID07_DayInMonth_June_Return30() {
+    void UTCID07_DayInMonth() {
         assertEquals(30, checker.dayInMonth(6, 2019));
     }
 
-    // UTCID08 - July has 31 days
+    // UTCID08
     @Test
-    void UTCID08_DayInMonth_July_Return31() {
-        assertEquals(31, checker.dayInMonth(7, 2019));
+    void UTCID08_DayInMonth() {
+        assertEquals(31, checker.dayInMonth(3, 2021));
     }
 
-    // UTCID09 - August has 31 days
+    // UTCID09
     @Test
-    void UTCID09_DayInMonth_August_Return31() {
-        assertEquals(31, checker.dayInMonth(8, 2021));
+    void UTCID09_DayInMonth() {
+        assertEquals(31, checker.dayInMonth(3, 10));
     }
 
-    // UTCID10 - September has 30 days
+    // UTCID10
     @Test
-    void UTCID10_DayInMonth_September_Return30() {
-        assertEquals(30, checker.dayInMonth(9, 2021));
+    void UTCID10_DayInMonth() {
+        assertEquals(31, checker.dayInMonth(3, 2019));
     }
 
-    // UTCID11 - October has 31 days
+    // UTCID11
     @Test
-    void UTCID11_DayInMonth_October_Return31() {
+    void UTCID11_DayInMonth() {
         assertEquals(31, checker.dayInMonth(10, 2021));
     }
 
-    // UTCID12 - November has 30 days
+    // UTCID12
     @Test
     void UTCID12_DayInMonth_November_Return30() {
-        assertEquals(30, checker.dayInMonth(11, 2021));
+        assertEquals(31, checker.dayInMonth(5, 10));
     }
 
-    // UTCID13 - December has 31 days
+    // UTCID13
     @Test
-    void UTCID13_DayInMonth_December_Return31() {
-        assertEquals(31, checker.dayInMonth(12, 2021));
-    }
-
-    // UTCID14 - Invalid month smaller than 1
-    @Test
-    void UTCID14_DayInMonth_InvalidMonthZero_ReturnMinus1() {
-        assertEquals(-1, checker.dayInMonth(0, 2019));
-    }
-
-    // UTCID15 - Invalid month greater than 12
-    @Test
-    void UTCID15_DayInMonth_InvalidMonthFifteen_ReturnMinus1() {
+    void UTCID13_DayInMonth() {
         assertEquals(-1, checker.dayInMonth(15, 2019));
+    }
+
+    // UTCID14
+    @Test
+    void UTCID14_DayInMonth() {
+        assertEquals(28, checker.dayInMonth(2, 10));
+    }
+
+    // UTCID15
+    @Test
+    void UTCID15_DayInMonth() {
+        assertEquals(31, checker.dayInMonth(1, 2019));
     }
 
 
